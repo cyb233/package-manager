@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Maven",
+    "official": "https://maven.apache.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg",
+    "languages": ["Java"]
+  },
+  {
+    "name": "npm",
+    "official": "https://www.npmjs.com/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg",
+    "languages": ["JavaScript"]
+  },
+  {
+    "name": "pip",
+    "official": "https://pypi.org/project/pip/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+    "languages": ["Python"]
+  },
+  {
+    "name": "cargo",
+    "official": "https://crates.io/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg",
+    "languages": ["Rust"]
+  },
+  {
+    "name": "go modules",
+    "official": "https://golang.org/ref/mod",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg",
+    "languages": ["Go"]
+  },
+  {
+    "name": "Carthage",
+    "official": "https://github.com/Carthage/Carthage",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg",
+    "languages": ["Swift"]
+  },
+  {
+    "name": "CocoaPods",
+    "official": "https://cocoapods.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/objectivec/objectivec-plain.svg",
+    "languages": ["Objective-C"]
+  },
+  {
+    "name": "bower",
+    "official": "https://bower.io/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bower/bower-original.svg",
+    "languages": ["JavaScript"]
+  },
+  {
+    "name": "NuGet",
+    "official": "https://www.nuget.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuget/nuget-original.svg",
+    "languages": ["C#"]
+  },
+  {
+    "name": "pub",
+    "official": "https://pub.dev/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg",
+    "languages": ["Dart"]
+  },
+  {
+    "name": "CPAN",
+    "official": "https://www.cpan.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/perl/perl-original.svg",
+    "languages": ["Perl"]
+  },
+  {
+    "name": "Yarn",
+    "official": "https://yarnpkg.com/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/yarn/yarn-original.svg",
+    "languages": ["JavaScript"]
+  },
+  {
+    "name": "Composer",
+    "official": "https://getcomposer.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+    "languages": ["PHP"]
+  },
+  {
+    "name": "Swift Package Manager",
+    "official": "https://swift.org/package-manager/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg",
+    "languages": ["Swift"]
+  },
+  {
+    "name": "Pear",
+    "official": "https://pear.php.net/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg",
+    "languages": ["PHP"]
+  },
+  {
+    "name": "Melpa",
+    "official": "https://melpa.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/emacs/emacs-original.svg",
+    "languages": ["Emacs Lisp"]
+  },
+  {
+    "name": "Gradle",
+    "official": "https://gradle.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gradle/gradle-original.svg",
+    "languages": ["Java", "Kotlin"]
+  }
+]

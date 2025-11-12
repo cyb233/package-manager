@@ -1,0 +1,92 @@
+[
+  {
+    "name": "C",
+    "official": "https://www.c-language.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg"
+  },
+  {
+    "name": "C++",
+    "official": "https://www.cplusplus.com/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg"
+  },
+  {
+    "name": "C#",
+    "official": "https://docs.microsoft.com/dotnet/csharp/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
+  },
+  {
+    "name": "Objective-C",
+    "official": "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/objectivec/objectivec-plain.svg"
+  },
+  {
+    "name": "Swift",
+    "official": "https://www.swift.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg"
+  },
+  {
+    "name": "Python",
+    "official": "https://www.python.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+  },
+  {
+    "name": "Rust",
+    "official": "https://www.rust-lang.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg"
+  },
+  {
+    "name": "Dart",
+    "official": "https://dart.dev/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg"
+  },
+  {
+    "name": "Go",
+    "official": "https://golang.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/go/go-original.svg"
+  },
+  {
+    "name": "Java",
+    "official": "https://www.java.com/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+  },
+  {
+    "name": "JavaScript",
+    "official": "https://www.javascript.com/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+  },
+  {
+    "name": "PHP",
+    "official": "https://www.php.net/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg"
+  },
+  {
+    "name": "Kotlin",
+    "official": "https://kotlinlang.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg"
+  },
+  {
+    "name": "Ruby",
+    "official": "https://www.ruby-lang.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ruby/ruby-original.svg"
+  },
+  {
+    "name": "Scala",
+    "official": "https://www.scala-lang.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scala/scala-original.svg"
+  },
+  {
+    "name": "TypeScript",
+    "official": "https://www.typescriptlang.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+  },
+  {
+    "name": "Perl",
+    "official": "https://www.perl.org/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/perl/perl-original.svg"
+  },
+  {
+    "name": "Emacs Lisp",
+    "official": "https://www.gnu.org/software/emacs/manual/html_node/elisp/",
+    "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/emacs/emacs-original.svg"
+  }
+]
