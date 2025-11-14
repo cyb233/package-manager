@@ -15,6 +15,10 @@
   height: 15px;
 }
 
+.logo-big {
+  max-width: min(150px, 10vw);
+}
+
 .flex {
   display: flex;
   justify-content: center;

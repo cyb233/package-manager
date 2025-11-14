@@ -15,14 +15,12 @@
 			margin: 0;
 			padding: 0;
 			width: 100%;
-			height: 100%;
-			overflow: hidden;
 		}
 
 		o-app {
 			width: 100%;
-			height: 100%;
 			display: block;
+			position: static;
 		}
 	</style>
 </head>
@@ -94,7 +92,7 @@
 						</p>
 						<div style="display: flex; gap: 24px;">
 							<div style="flex-shrink: 0;">
-								<img attr:src="description[selectedManager].logo" attr:alt="description[selectedManager].name" style="max-width: 150px;" />
+								<img class="logo-big" attr:src="description[selectedManager].logo" attr:alt="description[selectedManager].name" />
 							</div>
 							<div class="center" style="flex: 1;">
 								<h4>简介</h4>
