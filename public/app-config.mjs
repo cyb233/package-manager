@@ -1,4 +1,4 @@
-export const home = './home.html';
+// export const home = './home.html';
 
 export const loading = () => {
   const loadingEl = $({

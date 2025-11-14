@@ -13,7 +13,6 @@
 .logo-small {
   width: 15px;
   height: 15px;
-  vertical-align: middle;
 }
 
 .flex {
@@ -21,6 +20,9 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
   margin: 20px;
+}
+
+.chip {
+  font-size: 15px;
 }

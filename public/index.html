@@ -2,15 +2,19 @@
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8" />
-	<title>PackageManager Ranking</title>
+	<title>PackageManager</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+	<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 	<script src="https://cdn.jsdelivr.net/gh/kirakiray/ofa.js@4/dist/ofa.js" debug></script>
-	<script src="https://unpkg.com/sober@1/dist/sober.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/kirakiray/ofa.js@4/libs/scsr/dist/scsr.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sober@1/dist/sober.min.js"></script>
 	<style>
 		body,
 		html {
 			margin: 0;
 			padding: 0;
+			width: 100%;
 			height: 100%;
 			overflow: hidden;
 		}
@@ -23,6 +27,236 @@
 	</style>
 </head>
 <body>
-	<o-app src="./app-config.mjs"></o-app>
+	<o-app src="./app-config.mjs">
+		<template page>
+			<link rel="stylesheet" href="./css/style.css" />
+			<l-m src="./component/github-corner.html"></l-m>
+			<github-corner href="https://github.com/cyb233/package-manager"></github-corner>
+			<h1 class="center">PackageManager</h1>
+			<div class="center">
+				<s-search id="search" placeholder="搜索包管理器" aria-label="搜索包管理器" on:input="search = $event.target.value">
+					<s-icon name="search" slot="start"></s-icon>
+					<s-icon-button slot="end" on:click="clearSearch($event)">
+						<s-icon name="close"></s-icon>
+					</s-icon-button>
+				</s-search>
+			</div>
+			<h3 class="center">编程语言</h3>
+			<div id="language" class="center flex" style="gap: 10px;">
+				<s-chip class="chip" clickable="true" checked="true" type="outlined" language="all" on:change="reloadFilter($event)">
+					全部
+				</s-chip>
+				<x-fill :value="languages">
+					<s-chip class="chip" clickable="true" type="outlined" attr:language="$data.name" on:change="$host.reloadFilter($event)">
+						<img attr:src="$data.logo" attr:alt="$data.name" class="logo-small" />
+						{{$data.name}}
+						<s-icon-button slot="action" on:click="$host.openlink($event,$data.official)">
+							<s-icon name="home"></s-icon>
+						</s-icon-button>
+					</s-chip>
+				</x-fill>
+			</div>
+			<h3 class="center">包管理器</h3>
+			<x-if :value="managers.filter(m => shouldShow(m)).length === 0">
+				<s-empty class="center">暂时没有数据</s-empty>
+			</x-if>
+			<div id="manager" class="center flex">
+				<x-fill :value="managers" name="managerItem"></x-fill>
+			</div>
+			<template name="managerItem">
+				<div style="display: inline;">
+					<x-if :value="$host.shouldShow($data)">
+						<s-tooltip style="margin: 5px;">
+							<s-chip class="chip" clickable="true" type="outlined" attr:manager="$data.name" slot="trigger" on:change="$host.reloadDesc($event, $data.name)">
+								<img attr:src="$data.logo" attr:alt="$data.name" class="logo-small" />
+								{{$data.name}}
+								<s-icon-button slot="action" on:click="$host.openlink($event,$data.official)">
+									<s-icon name="home"></s-icon>
+								</s-icon-button>
+							</s-chip>
+							{{$data.languages.join(',')}}
+						</s-tooltip>
+					</x-if>
+				</div>
+			</template>
+			<x-if :value="selectedManager">
+				<s-card style="display: block; max-width: none; margin: 24px; padding: 24px">
+					<h3 class="center">{{selectedManager}} 介绍</h3>
+					<x-if :value="description[selectedManager]">
+						<p class="center" style="margin-top: 16px;">
+							<s-button on:click="$host.openlink($event, description[selectedManager].official)">
+								<s-icon name="home" slot="start"></s-icon>
+								官方网站
+							</s-button>
+						</p>
+						<p class="center" style="color: #666; font-size: 12px; margin-top: 8px;">
+							支持语言：{{description[selectedManager].languages.join(', ')}}
+						</p>
+						<div style="display: flex; gap: 24px;">
+							<div style="flex-shrink: 0;">
+								<img attr:src="description[selectedManager].logo" attr:alt="description[selectedManager].name" style="max-width: 150px;" />
+							</div>
+							<div class="center" style="flex: 1;">
+								<h4>简介</h4>
+								<p>{{description[selectedManager].description}}</p>
+								<div style="width: fit-content; margin: 0 auto;">
+									<x-if :value="description[selectedManager].advantages">
+										<h4>优点:</h4>
+										<ul class="left">
+											<x-fill :value="description[selectedManager].advantages">
+												<li>{{$data}}</li>
+											</x-fill>
+										</ul>
+									</x-if>
+									<x-if :value="description[selectedManager].disadvantages">
+										<h4>缺点:</h4>
+										<ul class="left">
+											<x-fill :value="description[selectedManager].disadvantages">
+												<li>{{$data}}</li>
+											</x-fill>
+										</ul>
+									</x-if>
+								</div>
+							</div>
+						</div>
+					</x-if>
+					<x-else>
+						<div style="display: flex; align-items: center">
+							<s-skeleton style="width: 150px; height: 150px"></s-skeleton>
+							<div style="flex-grow: 1; margin-left: 16px">
+								<s-skeleton></s-skeleton>
+								<s-skeleton style="margin-top: 8px"></s-skeleton>
+								<s-skeleton style="margin-top: 8px; width: 80%"></s-skeleton>
+							</div>
+						</div>
+					</x-else>
+				</s-card>
+			</x-if>
+			<div class="center">
+				<s-button type="text" on:click="openlink($event,'https://github.com/cyb233/package-manager/issues/new')">
+					<s-icon slot="start">
+						<svg viewBox="0 -960 960 960">
+							<path d="M480-200q66 0 113-47t47-113v-160q0-66-47-113t-113-47q-66 0-113 47t-47 113v160q0 66 47 113t113 47Zm-80-120h160v-80H400v80Zm0-160h160v-80H400v80Zm80 40Zm0 320q-65 0-120.5-32T272-240H160v-80h84q-3-20-3.5-40t-.5-40h-80v-80h80q0-20 .5-40t3.5-40h-84v-80h112q14-23 31.5-43t40.5-35l-64-66 56-56 86 86q28-9 57-9t57 9l88-86 56 56-66 66q23 15 41.5 34.5T688-640h112v80h-84q3 20 3.5 40t.5 40h80v80h-80q0 20-.5 40t-3.5 40h84v80H688q-32 56-87.5 88T480-120Z"></path>
+						</svg>
+					</s-icon>
+					内容有错误？点此提交issue
+				</s-button>
+			</div>
+			<script>
+				export default ({ query }) => {
+					return {
+						data: {
+							search: '',
+							languages: [],
+							managers: [],
+							selectedManager: null,
+							description: {}
+						},
+						ready() {
+							this.initLanguages();
+							this.initManagers();
+						},
+						proto: {
+							reloadFilter(event) {
+								const ele = $(event.target);
+								if (ele.attr('language') === 'all') {
+									if (ele.attr('checked') === 'true') {
+										// 全选时清除其他选项
+										this.shadow.all(`#language s-chip[language]:not([language=all])`).forEach(chip => {
+											chip.attr('checked', 'false');
+										});
+									} else {
+										// 取消全选时选中其他选项
+										this.shadow.all(`#language s-chip[language]:not([language=all])`).forEach(chip => {
+											chip.attr('checked', 'true');
+										});
+									}
+								} else {
+									if (this.shadow.$(`#language s-chip[checked=true][language]:not([language=all])`)) {
+										// 有选中时取消全选
+										this.shadow.$(`#language s-chip[language=all]`).attr('checked', 'false');
+									} else {
+										// 无选中时选中全选
+										this.shadow.$(`#language s-chip[language=all]`).attr('checked', 'true');
+									}
+								}
+								console.log('选中语言：', this.shadow.all(`#language s-chip[checked=true]`).map(chip => chip.attr('language')));
+								this.refresh();
+							},
+							reloadDesc(event, managerName) {
+								const ele = $(event.target);
+								if (ele.attr('checked') !== 'true') {
+									this.selectedManager = null;
+									return;
+								}
+								this.shadow.all(`#manager s-chip:not([manager='${managerName}'])`).forEach(chip => {
+									chip.attr('checked', 'false');
+								});
+								this.selectedManager = managerName;
+								if (!this.description[managerName]) {
+									fetch(`./data/manager/${managerName}.json`)
+										.then(res => res.json())
+										.then(data => {
+											this.description[managerName] = data;
+										})
+										.catch(err => {
+											console.error(err);
+										});
+								}
+							},
+							initLanguages() {
+								fetch('./data/languages.json')
+									.then(res => res.json())
+									.then(data => {
+										this.languages = data;
+										this.languages.sort((a, b) => {
+											return a.name.localeCompare(b.name);
+										});
+									})
+									.catch(err => {
+										console.error(err);
+									});
+							},
+							initManagers() {
+								fetch('./data/managers.json')
+									.then(res => res.json())
+									.then(data => {
+										this.managers = data;
+										this.managers.sort((a, b) => {
+											return a.name.localeCompare(b.name);
+										});
+									})
+									.catch(err => {
+										console.error(err);
+									});
+							},
+							shouldShow(data) {
+								const should = data.name.toLowerCase().includes(this.search.toLowerCase()) &&
+									(
+										this.shadow.$(`#language s-chip[language=all]`).attr('checked') === 'true' ||
+										data.languages.some(lang => {
+											return this.shadow.$(`#language s-chip[language='${lang}']`).attr('checked') === 'true';
+										})
+									);
+								if (this.selectedManager === data.name && !should) {
+									this.selectedManager = null;
+								}
+								return should;
+							},
+							clearSearch(e) {
+								const search = $(e.target).root.$('#search');
+								search.ele.value = '';
+								this.search = '';
+							},
+							openlink(e, url) {
+								e.preventDefault();
+								window.open(url, '_blank');
+							}
+						},
+					};
+				};
+			</script>
+		</template>
+	</o-app>
 </body>
 </html>
