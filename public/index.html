@@ -40,7 +40,7 @@
 				</s-search>
 			</div>
 			<h3 class="center">编程语言</h3>
-			<div id="language" class="center flex" style="gap: 10px;">
+			<div id="language" class="center flex">
 				<s-chip class="chip" clickable="true" checked="true" type="outlined" language="all" on:change="reloadFilter($event)">
 					全部
 				</s-chip>
@@ -62,9 +62,9 @@
 				<x-fill :value="managers" name="managerItem"></x-fill>
 			</div>
 			<template name="managerItem">
-				<div style="display: inline;">
+				<div style="display: contents;">
 					<x-if :value="$host.shouldShow($data)">
-						<s-tooltip style="margin: 5px;">
+						<s-tooltip>
 							<s-chip class="chip" clickable="true" type="outlined" attr:manager="$data.name" slot="trigger" on:change="$host.reloadDesc($event, $data.name)">
 								<img attr:src="$data.logo" attr:alt="$data.name" class="logo-small" />
 								{{$data.name}}
