@@ -82,7 +82,7 @@
 					<h3 class="center">{{selectedManager}} 介绍</h3>
 					<x-if :value="description[selectedManager]">
 						<p class="center" style="margin-top: 16px;">
-							<s-button on:click="$host.openlink($event, description[selectedManager].official)">
+							<s-button on:click="openlink($event, description[selectedManager].official)">
 								<s-icon name="home" slot="start"></s-icon>
 								官方网站
 							</s-button>
