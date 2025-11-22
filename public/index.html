@@ -90,11 +90,11 @@
 						<p class="center" style="color: #666; font-size: 12px; margin-top: 8px;">
 							支持语言：{{description[selectedManager].languages.join(', ')}}
 						</p>
-						<div style="display: flex;gap: 24px;justify-content: center;flex-wrap: wrap;">
+						<div class="desc" style="display: flex;flex-direction: row;flex-wrap: wrap;justify-content: center;gap: 24px;">
 							<div style="flex-shrink: 0;">
 								<img class="logo-big" attr:src="description[selectedManager].logo" attr:alt="description[selectedManager].name" />
 							</div>
-							<div class="center" style="flex: 1;">
+							<div class="center">
 								<h4>简介</h4>
 								<p>{{description[selectedManager].description}}</p>
 								<div style="width: fit-content; margin: 0 auto;">
