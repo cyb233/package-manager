@@ -7,7 +7,7 @@
 	<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 	<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 	<script src="https://cdn.jsdelivr.net/gh/kirakiray/ofa.js@4/dist/ofa.js" debug></script>
-	<script src="https://cdn.jsdelivr.net/gh/kirakiray/ofa.js@4/libs/scsr/dist/scsr.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/kirakiray/ofa.js@4/libs/scsr/dist/scsr.min.js" debug></script>
 	<script src="https://cdn.jsdelivr.net/npm/sober@1/dist/sober.min.js"></script>
 	<style>
 		body,
@@ -114,6 +114,14 @@
 											</x-fill>
 										</ul>
 									</x-if>
+									<x-if :value="description[selectedManager].article">
+										<h4>相关文章:</h4>
+										<ul class="left">
+											<x-fill :value="description[selectedManager].article">
+												<li><a attr:href="$data.link" target="_blank">{{$data.title}}</a></li>
+											</x-fill>
+										</ul>
+									</x-if>
 								</div>
 							</div>
 						</div>
@@ -130,7 +138,7 @@
 					</x-else>
 				</s-card>
 			</x-if>
-			<div class="center">
+			<div class="center" style="margin-bottom: 10px;">
 				<s-button type="text" on:click="openlink($event,'https://github.com/cyb233/package-manager/issues/new')">
 					<s-icon slot="start">
 						<svg viewBox="0 -960 960 960">
@@ -247,7 +255,7 @@
 								this.search = '';
 							},
 							openlink(e, url) {
-								e.preventDefault();
+								e?.preventDefault();
 								window.open(url, '_blank');
 							}
 						},

@@ -16,5 +16,11 @@
     "配置复杂，XML文件冗长",
     "构建速度相对较慢",
     "对非Java项目支持有限"
+  ],
+  "article": [
+    {
+      "title": "菜鸟教程",
+      "link": "https://www.runoob.com/maven/maven-tutorial.html"
+    }
   ]
 }
