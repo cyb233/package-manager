@@ -2,7 +2,6 @@
   "name": "Maven",
   "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original-wordmark.svg",
   "official": "https://maven.apache.org/",
-  "languages": ["Java"],
   "description": "Maven 是一个强大的项目管理工具，主要用于 Java 项目的构建、依赖管理和项目生命周期管理。",
   "advantages": [
     "标准化的项目结构，便于团队协作",
